@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <ul class="nav nav-pills pull-right">
+                <li class=""><a href="{% url 'index' %}">Nome</a></li>
+                <li class ""><a href="/listagem/">Listagem</a></li>
+                <li class=""><a href="/logout/">
+                    Logout
+                </a></li>
+            </ul>
+            <h3 class="text-muted">ProvaFinal</h3>
+        </div>
+        <div class="row content">
+            <form class="form-signin" role="form"
+                action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <h2 class="form-signin-heading">Login</h2>
+                <input id="id_username" name="username" class="form-control" placeholder="Nome" required autofocus>
+                <input type="password" id="id_password" name="password" class="form-control" placeholder="Senha" required>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" value="Login">Login</button>
+
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        Por favor, verifique o Email e/ou Senha informados
+                </div>
+                {% endif %}
+                <a href="{% url 'registrar' %}">registre-se</a>
+            </form>
+</body>
+</html>

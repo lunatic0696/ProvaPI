@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="{% static 'styles/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'styles/main.css' %}" rel="stylesheet">
+    <title>ProvaFinal</title>
+</head>
+<body>
+<div class="col-lg-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <strong>Todas as pessoas</strong>
+        </div>
+        {% if pessoas %}
+        <ul>
+            {% for pessoa in pessoas %}
+            <li>
+                {{ pessoa.nome }} / {{ pessoa.email }} / {{pessoa.telefone}}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+    <p>Nenhuma pessoa encontrada</p>
+    {% endif %}
+        </div>
+    </div>
+</body>
